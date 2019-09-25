@@ -93,7 +93,7 @@ const employeeDetails = ({ selectedEmployee,  onInputChange, onFormSubmit, onSel
                   </form>
                 </>
     ) : (
-      <h3>Please select a user to view edit his data...</h3>
+      <h3>Please select a user to view and edit his data...</h3>
     )}
   </div>
 );
