@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Employees from "./Employees";
+import ErrorBoundary from "./ErrorBoundary";
 
 //convert class component to functional component
 export default function Dashboard () {
@@ -20,10 +21,12 @@ export default function Dashboard () {
   },[]);
 
   return (
-    <Container>
-      <Header user ={user} />
-      <Employees />
-      <Footer user ={user}/>
-    </Container>
+    <ErrorBoundary>
+      <Container>
+        <Header user ={user} />
+        <Employees />
+        <Footer user ={user}/>
+      </Container>
+    </ErrorBoundary>
   );
 }

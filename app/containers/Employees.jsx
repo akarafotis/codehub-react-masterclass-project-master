@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import EmployeesContainer from "../components/EmpoyeesView/EmployeesContainer";
 import axios from "axios";
+import toast from "../components/toast";
 
 export default function Employees () {
   
@@ -8,8 +9,13 @@ export default function Employees () {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   
   const fetchMyAPI = async () => {
-    const employees = await axios.get("http://localhost:3001/employees");
-    setEmployees(employees.data);
+    try{
+      const employees = await axios.get("http://localhost:3001/employees");
+      setEmployees(employees.data);}
+    catch (error) {
+      console.log(error.response.status);
+      toast.error("cannot get Employyes from the server");
+    }
   };
 
   useEffect(() => {
@@ -34,7 +40,12 @@ export default function Employees () {
   const onFormSubmit = async (e) => {
     e.preventDefault();
     const { id, ...rest } = selectedEmployee;
-    await axios.put(`http://localhost:3001/employees/${id}`, rest);
+    try{
+      await axios.put(`http://localhost:3001/employees/${id}`, rest);
+      toast.success(" the employee's details were stored");}
+    catch{
+      toast.error("the employee's details were not stored");
+    }
     const employees = await axios.get("http://localhost:3001/employees");
     setEmployees(employees.data);
   };
