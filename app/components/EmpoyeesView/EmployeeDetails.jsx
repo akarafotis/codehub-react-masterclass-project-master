@@ -1,25 +1,27 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import Input from "../Input";
+import React, { useContext} from "react";
+import Input from "../UI/Input";
+import  {AppContext} from "../../context/app-context";
 
-const employeeDetails = ({ selectedEmployee,  onInputChange, onFormSubmit, onSelectChange}) => (
-  
-  <div className="employee-details">
-    {selectedEmployee ? (
+export default function employeeDetails (){
+  const ctx = useContext(AppContext);
+  return(
+    <div className="employee-details">
+      {ctx.selectedEmployee ? (
                 <>
                   <h3>
-                    {selectedEmployee.id}:{" "}
-                    {`${selectedEmployee.firstName} ${selectedEmployee.lastName}`} (
-                    {selectedEmployee.department})
+                    {ctx.selectedEmployee.id}:{" "}
+                    {`${ctx.selectedEmployee.firstName} ${ctx.selectedEmployee.lastName}`} (
+                    {ctx.selectedEmployee.department})
                   </h3>
-                  <form onSubmit={onFormSubmit}>
+                  <form onSubmit={ctx.onFormSubmit}>
                     <div className="form-group">
                       <label htmlFor="firstName">First name:</label>
                       <Input
                         id="firstName"
                         name="firstName"
-                        value={selectedEmployee.firstName}
-                        onChange={onInputChange}
+                        value={ctx.selectedEmployee.firstName}
+                        onChange={ctx.onInputChange}
                       />
                     </div>
 
@@ -28,8 +30,8 @@ const employeeDetails = ({ selectedEmployee,  onInputChange, onFormSubmit, onSel
                       <Input
                         id="lastName"
                         name="lastName"
-                        value={selectedEmployee.lastName}
-                        onChange={onInputChange}
+                        value={ctx.selectedEmployee.lastName}
+                        onChange={ctx.onInputChange}
                       />
                     </div>
 
@@ -39,8 +41,8 @@ const employeeDetails = ({ selectedEmployee,  onInputChange, onFormSubmit, onSel
                         id="gender"
                         name="gender"
                         className="form-control"
-                        value = {selectedEmployee.gender}
-                        onChange={onSelectChange}
+                        value = {ctx.selectedEmployee.gender}
+                        onChange={ctx.onSelectChange}
                       >
                         <option>male</option>
                         <option>female</option>
@@ -52,8 +54,8 @@ const employeeDetails = ({ selectedEmployee,  onInputChange, onFormSubmit, onSel
                       <Input
                         id="email"
                         name="email"
-                        value={selectedEmployee.email}
-                        onChange={onInputChange}
+                        value={ctx.selectedEmployee.email}
+                        onChange={ctx.onInputChange}
                       />
                     </div>
 
@@ -62,8 +64,8 @@ const employeeDetails = ({ selectedEmployee,  onInputChange, onFormSubmit, onSel
                       <Input
                         id="phone"
                         name="phone"
-                        value={selectedEmployee.phone}
-                        onChange={onInputChange}
+                        value={ctx.selectedEmployee.phone}
+                        onChange={ctx.onInputChange}
                       />
                     </div>
 
@@ -72,8 +74,8 @@ const employeeDetails = ({ selectedEmployee,  onInputChange, onFormSubmit, onSel
                       <Input
                         id="mobile"
                         name="mobile"
-                        value={selectedEmployee.mobile}
-                        onChange={onInputChange}
+                        value={ctx.selectedEmployee.mobile}
+                        onChange={ctx.onInputChange}
                       />
                     </div>
 
@@ -82,8 +84,8 @@ const employeeDetails = ({ selectedEmployee,  onInputChange, onFormSubmit, onSel
                       <Input
                         id="age"
                         name="age"
-                        value={selectedEmployee.age}
-                        onChange={onInputChange}
+                        value={ctx.selectedEmployee.age}
+                        onChange={ctx.onInputChange}
                       />
                     </div>
 
@@ -92,9 +94,9 @@ const employeeDetails = ({ selectedEmployee,  onInputChange, onFormSubmit, onSel
                     </button>
                   </form>
                 </>
-    ) : (
-      <h3>Please select a user to view and edit his data....</h3>
-    )}
-  </div>
-);
-export default employeeDetails;
+      ) : (
+        <h3>Please select a user to view and edit his data....</h3>
+      )}
+    </div>
+  )
+}

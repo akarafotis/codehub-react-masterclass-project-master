@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import Image from "../Image";
+import React, { useContext} from "react";
+import  {AppContext} from "../../context/app-context";
+import Image from "../UI/Image";
 
-const employeesList = ({ employees,  onSelectEmployee}) => (  
-  <div className="employees-list">
-    <ul>
-      {employees.length &&
-                  employees.map((employee) => (
+export default function employeesList () {  
+  const ctx =useContext(AppContext);
+  return(
+    <div className="employees-list">
+      <ul>
+        {ctx.employees.length &&
+                  ctx.employees.map((employee) => (
                     <li key={employee.id} className="employee-list-item">
-                      <a href="#" onClick={(e) => onSelectEmployee(e, employee)}>
+                      <a href="#" onClick={(e) => ctx.onSelectEmployee(e, employee)}>
                         <div className="img">
                           <Image
                             width={70}
@@ -25,7 +28,7 @@ const employeesList = ({ employees,  onSelectEmployee}) => (
                       </a>
                     </li>
                   ))}
-    </ul>
-  </div>
-);
-export default employeesList;
+      </ul>
+    </div>
+  );
+}
