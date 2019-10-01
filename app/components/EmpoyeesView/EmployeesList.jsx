@@ -8,7 +8,7 @@ export default function employeesList () {
   return(
     <div className="employees-list">
       <ul>
-        {ctx.employees.length &&
+        {ctx.employees && ctx.employees.length &&
                   ctx.employees.map((employee) => (
                     <li key={employee.id} className="employee-list-item">
                       <a href="#" onClick={(e) => ctx.onSelectEmployee(e, employee)}>

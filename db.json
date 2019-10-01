@@ -2,7 +2,7 @@
   "employees": [
     {
       "gender": "male",
-      "firstName": "lawrences",
+      "firstName": "lawrence",
       "lastName": "simmmons",
       "email": "lawrence.simmmons@example.com",
       "age": 72,
@@ -14,7 +14,7 @@
     },
     {
       "gender": "male",
-      "firstName": "wades",
+      "firstName": "wadesa",
       "lastName": "hernandez",
       "email": "wade.hernandez@example.comh",
       "age": "45dds",

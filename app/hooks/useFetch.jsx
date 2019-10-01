@@ -4,14 +4,12 @@ import toast from "../components/UI/toast";
 
 const useFetch = (url) => {
 
-  const [user, setUser] = useState (null);
-  const [employees, setEmployees] = useState([]);
+  const [data, setData] = useState (null);
 
   const fetchMyAPI = async () => {
     try{
-      const response = await axios({
-        url: url});
-      url.substr(url.length - 4) === "user" ? setUser(response.data) : setEmployees(response.data);}
+      const response = await axios({url});
+      setData(response.data);}
     catch (error) {
       toast.error(error.message);
     }
@@ -19,10 +17,10 @@ const useFetch = (url) => {
 
   useEffect(() => {
     fetchMyAPI();
-  }, [employees, user]);
+  }, []);
 
   return {
-    employees, user
+    data
   };
 };
 

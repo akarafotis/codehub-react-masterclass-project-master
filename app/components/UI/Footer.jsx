@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useContext} from "react";
 import { Row, Col } from "reactstrap";
-import  {AppContext} from "../context/app-context";
+import  {AppContext} from "../../context/app-context";
 
 export default function footerView () {
   const ctx = useContext(AppContext);

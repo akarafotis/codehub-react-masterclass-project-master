@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useContext} from "react";
-import Image from "./UI/Image";
+import Image from "./Image";
 import { Row, Col, Navbar, NavbarBrand, Nav, Media } from "reactstrap";
-import  {AppContext} from "../context/app-context";
+import  {AppContext} from "../../context/app-context";
 
 export default function Header () {
   const ctx = useContext(AppContext);
