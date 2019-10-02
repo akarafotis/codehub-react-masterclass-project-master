@@ -4,24 +4,24 @@ import Input from "../UI/Input";
 import  {AppContext} from "../../context/app-context";
 
 export default function employeeDetails (){
-  const ctx = useContext(AppContext);
+  const {selectedEmployee, onFormSubmit, onInputChange, onSelectChange } = useContext(AppContext);
   return(
     <div className="employee-details">
-      {ctx.selectedEmployee ? (
+      {selectedEmployee ? (
                 <>
                   <h3>
-                    {ctx.selectedEmployee.id}:{" "}
-                    {`${ctx.selectedEmployee.firstName} ${ctx.selectedEmployee.lastName}`} (
-                    {ctx.selectedEmployee.department})
+                    {selectedEmployee.id}:{" "}
+                    {`${selectedEmployee.firstName} ${selectedEmployee.lastName}`} (
+                    {selectedEmployee.department})
                   </h3>
-                  <form onSubmit={ctx.onFormSubmit}>
+                  <form onSubmit={onFormSubmit}>
                     <div className="form-group">
                       <label htmlFor="firstName">First name:</label>
                       <Input
                         id="firstName"
                         name="firstName"
-                        value={ctx.selectedEmployee.firstName}
-                        onChange={ctx.onInputChange}
+                        value={selectedEmployee.firstName}
+                        onChange={onInputChange}
                       />
                     </div>
 
@@ -30,8 +30,8 @@ export default function employeeDetails (){
                       <Input
                         id="lastName"
                         name="lastName"
-                        value={ctx.selectedEmployee.lastName}
-                        onChange={ctx.onInputChange}
+                        value={selectedEmployee.lastName}
+                        onChange={onInputChange}
                       />
                     </div>
 
@@ -41,8 +41,8 @@ export default function employeeDetails (){
                         id="gender"
                         name="gender"
                         className="form-control"
-                        value = {ctx.selectedEmployee.gender}
-                        onChange={ctx.onSelectChange}
+                        value = {selectedEmployee.gender}
+                        onChange={onSelectChange}
                       >
                         <option>male</option>
                         <option>female</option>
@@ -54,8 +54,8 @@ export default function employeeDetails (){
                       <Input
                         id="email"
                         name="email"
-                        value={ctx.selectedEmployee.email}
-                        onChange={ctx.onInputChange}
+                        value={selectedEmployee.email}
+                        onChange={onInputChange}
                       />
                     </div>
 
@@ -64,8 +64,8 @@ export default function employeeDetails (){
                       <Input
                         id="phone"
                         name="phone"
-                        value={ctx.selectedEmployee.phone}
-                        onChange={ctx.onInputChange}
+                        value={selectedEmployee.phone}
+                        onChange={onInputChange}
                       />
                     </div>
 
@@ -74,8 +74,8 @@ export default function employeeDetails (){
                       <Input
                         id="mobile"
                         name="mobile"
-                        value={ctx.selectedEmployee.mobile}
-                        onChange={ctx.onInputChange}
+                        value={selectedEmployee.mobile}
+                        onChange={onInputChange}
                       />
                     </div>
 
@@ -84,8 +84,8 @@ export default function employeeDetails (){
                       <Input
                         id="age"
                         name="age"
-                        value={ctx.selectedEmployee.age}
-                        onChange={ctx.onInputChange}
+                        value={selectedEmployee.age}
+                        onChange={onInputChange}
                       />
                     </div>
 

@@ -3,15 +3,15 @@ import React, { useContext} from "react";
 import { Row, Col } from "reactstrap";
 import  {AppContext} from "../../context/app-context";
 
-export default function footerView () {
-  const ctx = useContext(AppContext);
+export default function Footer () {
+  const {user} = useContext(AppContext);
   return(
     <Row>
       <Col xs={12}>
         <footer>
-          {ctx.user && (
+          {user && (
             <div>
-                logged in as {ctx.user.name} {ctx.user.admin && "(admin)"}
+                logged in as {user.name} {user.admin && "(admin)"}
             </div>
           )}
           <div>

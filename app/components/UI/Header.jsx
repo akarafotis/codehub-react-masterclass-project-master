@@ -5,26 +5,26 @@ import { Row, Col, Navbar, NavbarBrand, Nav, Media } from "reactstrap";
 import  {AppContext} from "../../context/app-context";
 
 export default function Header () {
-  const ctx = useContext(AppContext);
+  const {user} = useContext(AppContext);
   return(
     <Row>
       <Col xs={12}>
         <Navbar color="light" light>
           <NavbarBrand href="#">Code.Hub Dashboard</NavbarBrand>
           <Nav className="ml-auto" navbar>
-            {ctx.user && (
+            {user && (
               <Media>
                 <Media left>
                   <Image 
-                    src={ctx.user.imgPath} 
-                    alt={ctx.user.name} 
+                    src={user.imgPath} 
+                    alt={user.name} 
                     className ={"rounded-circle"}
                     width={50}
                     height={50}
                   />
                 </Media>
                 <Media body className="user-text">
-                  {ctx.user.name}
+                  {user.name}
                 </Media>
               </Media>
             )}

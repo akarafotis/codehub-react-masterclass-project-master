@@ -4,14 +4,16 @@ import  {AppContext} from "../../context/app-context";
 import Image from "../UI/Image";
 
 export default function employeesList () {  
-  const ctx =useContext(AppContext);
+  
+  const {employees, onSelectEmployee } = useContext(AppContext);
+  
   return(
     <div className="employees-list">
       <ul>
-        {ctx.employees && ctx.employees.length &&
-                  ctx.employees.map((employee) => (
+        {employees && employees.length &&
+                  employees.map((employee) => (
                     <li key={employee.id} className="employee-list-item">
-                      <a href="#" onClick={(e) => ctx.onSelectEmployee(e, employee)}>
+                      <a href="#" onClick={(e) => onSelectEmployee(e, employee)}>
                         <div className="img">
                           <Image
                             width={70}

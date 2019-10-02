@@ -2,7 +2,7 @@ import React  from "react";
 import { Container } from "reactstrap";
 import Header from "./components/UI/Header";
 import Footer from "./components/UI/Footer";
-import Employees from "./components/EmpoyeesView/Employees";
+import Employees from "./components/Empoyees/Employees";
 import ErrorBoundary from "./errorBoundary/ErrorBoundary";
 import AppContextProvider from "./context/app-context";
 
