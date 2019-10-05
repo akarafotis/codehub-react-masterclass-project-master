@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useContext} from "react";
 import Input from "../UI/Input";
+import Select from "../UI/Select";
 import  {AppContext} from "../../context/app-context";
 
 export default function employeeDetails (){
@@ -15,80 +16,40 @@ export default function employeeDetails (){
                     {selectedEmployee.department})
                   </h3>
                   <form onSubmit={onFormSubmit}>
-                    <div className="form-group">
-                      <label htmlFor="firstName">First name:</label>
                       <Input
-                        id="firstName"
+                        title = "FirstName:"
                         name="firstName"
                         value={selectedEmployee.firstName}
-                        onChange={onInputChange}
                       />
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="lastName">Last name:</label>
                       <Input
-                        id="lastName"
+                        title = "LastName:"
                         name="lastName"
                         value={selectedEmployee.lastName}
-                        onChange={onInputChange}
                       />
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="gender">Gender:</label>
-                      <select
-                        id="gender"
+                      <Select
+                        title = "Gender:"
                         name="gender"
-                        className="form-control"
-                        value = {selectedEmployee.gender}
-                        onChange={onSelectChange}
-                      >
-                        <option>male</option>
-                        <option>female</option>
-                      </select>
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="email">Email:</label>
+                      />
                       <Input
-                        id="email"
+                        title = "Email:"
                         name="email"
                         value={selectedEmployee.email}
-                        onChange={onInputChange}
                       />
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="phone">Phone:</label>
                       <Input
-                        id="phone"
+                        title = "Phone:"
                         name="phone"
                         value={selectedEmployee.phone}
-                        onChange={onInputChange}
                       />
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="mobile">Mobile:</label>
                       <Input
-                        id="mobile"
+                        title = "Mobile:"
                         name="mobile"
                         value={selectedEmployee.mobile}
-                        onChange={onInputChange}
                       />
-                    </div>
-
-                    <div className="form-group">
-                      <label htmlFor="age">Age:</label>
                       <Input
-                        id="age"
+                        title = "Age:"
                         name="age"
                         value={selectedEmployee.age}
-                        onChange={onInputChange}
                       />
-                    </div>
-
                     <button type="submit" className="btn btn-primary float-sm-right">
                       Submit
                     </button>
